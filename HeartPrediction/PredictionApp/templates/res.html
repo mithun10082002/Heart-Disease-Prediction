@@ -1,0 +1,46 @@
+<style>
+    body {
+        background-color: #a0c0e8;
+    }
+
+    .result{
+        width: 50%;
+        height: 50%;
+        text-align: center;
+        background-color: aliceblue;
+        margin: auto;
+        margin-top: 12%;
+        border-radius: 50px;
+    }
+
+    .result h1{
+        font-size: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 100px;
+    }
+
+    a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+    }
+
+    a:hover {
+        background-color: rgb(106, 122, 207);
+        color: white;
+    }
+
+    .home {
+        background-color: #f1f1f1;
+        color: black;
+    }
+</style>
+<a href="{% url 'home' %}" class="home">Home</a>
+<div class="result">
+    {% if res == 1 %}
+    <h1>The patient is likely to have heart disease!</h1>
+    {% else %}
+    <h1>The patient is not likely to have heart disease!</h1>
+    {% endif %}
+</div>
+

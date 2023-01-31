@@ -1,0 +1,174 @@
+{% load static %}
+<style>
+    * {
+        margin: 0;
+    }
+    .header {
+        background-image: url("static/bg.jpg");
+        height: 100%; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    body {
+        background-color: #a0c0e8;
+    }
+
+    .section h1{
+        text-align: center;
+        font-size: 50px;
+        padding: 50px;
+    }
+
+    .section p{
+        text-align: center;
+        padding: 50px;
+        font-size: 20px;
+    }
+
+    .item form{
+        margin: 100px;
+        background-color: aliceblue;
+        padding: 30px;
+        border-radius: 50px;
+        text-align: center;
+    }
+
+    h3 {
+        padding: 20px;
+    }
+
+    input[type=number]{
+        width: 10%;
+        height: 5%;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    select{
+        width: 10%;
+        height: 5%;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    button{
+        background-color: lightblue;
+        color: black;
+        border: 2px solid black;
+        padding: 16px 60px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        transition-duration: 0.3s;
+        cursor: pointer;
+        border-radius: 10px;
+        margin: 3%;
+    }
+
+    button:hover{
+        background-color: black;
+        color: white;
+    }
+
+    .footer{
+        width: 100%;
+        height: 30%;
+        background-color:darkblue;
+        color: white;
+        text-align: center;
+    }
+
+    .footer div{
+        padding: 65px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .footer div h5{
+        padding-top: 30px;
+        padding-bottom: 10px;
+    }
+</style>
+<body>
+    <div class="header"></div>
+    <div class="section">
+        <h1>Predict your chance of having a heart disease because prevention is better than cure!</h1>
+        <center>_____________</center>
+        <p>Enter the appropriate values of symptoms you face. Get the chances of you contracting heart disease based on those values.</p>
+        <center>_____________</center>
+        <div class="item">
+            <form method="POST">
+                {% csrf_token %}
+                <h3>Age</h3>
+                <input name="age" type="number"/>
+                <h3>Sex(1= Male, 0= Female)</h3>
+                <select name="sex">
+                    <option value="1">1</option>
+                    <option value="0">0</option>
+                </select>
+                <h3>Chest Pain(0= typical type 1, 1= typical type angina, 2= non-angina pain, 3= asymptomatic)</h3>
+                <select name="cp">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <h3>Resting Blood Pressure</h3>
+                <input name="trestbps" type="number"/>
+                <h3>Serum Cholestrol</h3>
+                <input name="chol" type="number"/>
+                <h3>Fasting Blood Sugar(1≥120 mg/dL, 0≤120 mg/dL)</h3>
+                <select name="fbs">
+                    <option value="1">1</option>
+                    <option value="0">0</option>
+                </select>
+                <h3>Resting ECG(0= normal, 1= having ST-T wave abnormal, 2= left ventricular hypertrophy)</h3>
+                <select name="restecg">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+                <h3>Max heart rate achieved</h3>
+                <input name="thalach" type="number"/>
+                <h3>Exercise induced angina(0= no, 1= yes)</h3>
+                <select name="exang">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                </select>
+                <h3>ST depression induced by exercise relative to rest</h3>
+                <input name="oldpeak" type="number"/>
+                <h3>Peak exercise ST segment(1= unsloping, 2= flat, 3= downsloping)</h3>
+                <select name="slope">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <h3>Number of major vessels colored by flourosopy(0-3 value)</h3>
+                <select name="ca">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <h3>Thal(1= normal, 2= fixed, 3= reversible defect)</h3>
+                <select name="thal">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <br><br>
+                <button type="submit">Predict</button>
+            </form>
+    </div>
+    <div class="footer">
+        <div>
+            <h4>&copy; 2023 All Rights Reserved.</h4>
+            <h5>Designed & Developed by <h4>Mithun Raj S, Mohamed Afzal M, Logesh Raj R</h4></h5>
+        </div>
+    </div>
+</body>
